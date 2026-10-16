@@ -1,7 +1,7 @@
 {
   "active": true,
   "activeVersion": {
-    "versionId": "ff600c37-898c-4456-a34d-50250c87fb32",
+    "versionId": "91aaa960-db16-462e-80ee-ac74cdf08382",
     "workflowId": "HGhoKWVALO8CN8uk",
     "nodes": [
       {
@@ -367,34 +367,6 @@
         "parameters": {
           "workflowId": {
             "__rl": true,
-            "value": "frqxFukTL7d1T1RJ",
-            "mode": "list",
-            "cachedResultUrl": "/workflow/frqxFukTL7d1T1RJ",
-            "cachedResultName": "Survival"
-          },
-          "workflowInputs": {
-            "mappingMode": "defineBelow",
-            "value": {},
-            "matchingColumns": [],
-            "schema": [],
-            "attemptToConvertTypes": false,
-            "convertFieldsToString": true
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.executeWorkflow",
-        "typeVersion": 1.3,
-        "position": [
-          624,
-          -400
-        ],
-        "id": "24034a89-2134-444a-8536-f7bb73cc2f9d",
-        "name": "Call 'Survival'"
-      },
-      {
-        "parameters": {
-          "workflowId": {
-            "__rl": true,
             "value": "EktAZeDiCTO9iWFA",
             "mode": "list",
             "cachedResultUrl": "/workflow/EktAZeDiCTO9iWFA",
@@ -423,9 +395,9 @@
         "parameters": {
           "workflowId": {
             "__rl": true,
-            "value": "9n0LAGVJ7wRuaygO",
+            "value": "n4jQ06nseqVxFznr",
             "mode": "list",
-            "cachedResultUrl": "/workflow/9n0LAGVJ7wRuaygO",
+            "cachedResultUrl": "/workflow/n4jQ06nseqVxFznr",
             "cachedResultName": "Cobblemon"
           },
           "workflowInputs": {
@@ -470,6 +442,34 @@
             "name": "John Helldiver"
           }
         }
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "frqxFukTL7d1T1RJ",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/frqxFukTL7d1T1RJ",
+            "cachedResultName": "Survival"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {},
+            "matchingColumns": [],
+            "schema": [],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.3,
+        "position": [
+          624,
+          -400
+        ],
+        "id": "24034a89-2134-444a-8536-f7bb73cc2f9d",
+        "name": "Call 'Cobblemon'1"
       }
     ],
     "connections": {
@@ -547,7 +547,7 @@
         "main": [
           [
             {
-              "node": "Call 'Survival'",
+              "node": "Call 'Cobblemon'1",
               "type": "main",
               "index": 0
             }
@@ -605,13 +605,13 @@
     },
     "nodeGroups": [],
     "authors": "Eon Hunt",
-    "name": "Version ff600c37",
+    "name": "Version 91aaa960",
     "description": "",
     "autosaved": true,
-    "createdAt": "2026-07-08T21:36:53.584Z",
-    "updatedAt": "2026-07-08T21:37:03.815Z"
+    "createdAt": "2026-10-12T22:31:18.286Z",
+    "updatedAt": "2026-10-12T23:00:06.646Z"
   },
-  "activeVersionId": "ff600c37-898c-4456-a34d-50250c87fb32",
+  "activeVersionId": "91aaa960-db16-462e-80ee-ac74cdf08382",
   "connections": {
     "slash register": {
       "main": [
@@ -687,7 +687,7 @@
       "main": [
         [
           {
-            "node": "Call 'Survival'",
+            "node": "Call 'Cobblemon'1",
             "type": "main",
             "index": 0
           }
@@ -1115,34 +1115,6 @@
       "parameters": {
         "workflowId": {
           "__rl": true,
-          "value": "frqxFukTL7d1T1RJ",
-          "mode": "list",
-          "cachedResultUrl": "/workflow/frqxFukTL7d1T1RJ",
-          "cachedResultName": "Survival"
-        },
-        "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": true
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.3,
-      "position": [
-        624,
-        -400
-      ],
-      "id": "24034a89-2134-444a-8536-f7bb73cc2f9d",
-      "name": "Call 'Survival'"
-    },
-    {
-      "parameters": {
-        "workflowId": {
-          "__rl": true,
           "value": "EktAZeDiCTO9iWFA",
           "mode": "list",
           "cachedResultUrl": "/workflow/EktAZeDiCTO9iWFA",
@@ -1171,9 +1143,9 @@
       "parameters": {
         "workflowId": {
           "__rl": true,
-          "value": "9n0LAGVJ7wRuaygO",
+          "value": "n4jQ06nseqVxFznr",
           "mode": "list",
-          "cachedResultUrl": "/workflow/9n0LAGVJ7wRuaygO",
+          "cachedResultUrl": "/workflow/n4jQ06nseqVxFznr",
           "cachedResultName": "Cobblemon"
         },
         "workflowInputs": {
@@ -1218,6 +1190,34 @@
           "name": "John Helldiver"
         }
       }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "frqxFukTL7d1T1RJ",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/frqxFukTL7d1T1RJ",
+          "cachedResultName": "Survival"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        624,
+        -400
+      ],
+      "id": "24034a89-2134-444a-8536-f7bb73cc2f9d",
+      "name": "Call 'Cobblemon'1"
     }
   ],
   "pinData": {},
@@ -1238,6 +1238,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-07-08T21:37:02.473Z",
-  "versionId": "ff600c37-898c-4456-a34d-50250c87fb32"
+  "updatedAt": "2026-10-12T22:31:18.284Z",
+  "versionId": "91aaa960-db16-462e-80ee-ac74cdf08382"
 }
