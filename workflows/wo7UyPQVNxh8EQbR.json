@@ -1,0 +1,745 @@
+{
+  "active": true,
+  "activeVersion": {
+    "versionId": "3c4f6a23-42be-4c32-8280-9678d4f0c358",
+    "workflowId": "wo7UyPQVNxh8EQbR",
+    "nodes": [
+      {
+        "parameters": {
+          "operation": "add-reaction",
+          "msgOpGuildIds": "={{ $('kick void?').item.json.guild }}",
+          "msgOpChannelId": "={{ $('kick void?').item.json.channel }}",
+          "msgOpMessageId": "={{ $json.id }}",
+          "reactionEmoji": "%F0%9F%90%87"
+        },
+        "type": "n8n-nodes-discord-bots.discordBot",
+        "typeVersion": 1,
+        "position": [
+          -128,
+          -32
+        ],
+        "id": "95168d71-e17c-456c-a56e-dae4b690d9b9",
+        "name": "react with bunny",
+        "retryOnFail": true,
+        "maxTries": 3,
+        "credentials": {
+          "discordBotApi": {
+            "id": "3SFVnF75zf8a4W5o",
+            "name": "John Helldiver"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "amount": 60
+        },
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          0,
+          -32
+        ],
+        "id": "8759ed5f-8084-4cd3-a6a6-931facf741c2",
+        "name": "60 sec wait",
+        "webhookId": "36ba16f9-3dfe-4f99-9926-b9a6a8d560d5"
+      },
+      {
+        "parameters": {
+          "jsCode": "const items = $input.all();\n\n// Handles both multiple n8n items and a single item containing an array\nconst total = Array.isArray(items[0]?.json) \n  ? items[0].json.length \n  : items.length;\n\nreturn [{\n  json: {\n    totalReactions: total\n  }\n}];"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          256,
+          -32
+        ],
+        "id": "609f39a0-726b-4f8f-ac9e-bdc0ff4d171b",
+        "name": "count bunnys"
+      },
+      {
+        "parameters": {
+          "url": "=https://discord.com/api/v10/channels/{{ $('kick void?').item.json.channel }}/messages/{{ $('ask to kick').item.json.id }}/reactions/%F0%9F%90%87",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "discordBotApi",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.5,
+        "position": [
+          128,
+          -32
+        ],
+        "id": "a3844a30-bfdb-4c63-bb25-fe8aff8010c6",
+        "name": "get bunny reacts",
+        "credentials": {
+          "discordBotApi": {
+            "id": "3SFVnF75zf8a4W5o",
+            "name": "John Helldiver"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "guild"
+              },
+              {
+                "name": "channel"
+              },
+              {
+                "name": "message"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.2,
+        "position": [
+          -384,
+          -32
+        ],
+        "id": "289f7e6b-368a-44d3-8f9e-fd428b8de858",
+        "name": "kick void?"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "f3784ff2-8194-4791-ba81-08dce1c9b4c3",
+                "leftValue": "={{ $json.totalReactions }}",
+                "rightValue": 3,
+                "operator": {
+                  "type": "number",
+                  "operation": "gte"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          384,
+          -32
+        ],
+        "id": "bb2b8801-2586-4b5f-b373-72b5a86e7d17",
+        "name": "more than 2?"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "faae63ea-88fe-480b-8285-92bd67ea8096",
+                "name": "was-void-kicked",
+                "value": "YES Void has been kicked from the VC",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.5,
+        "position": [
+          -112,
+          160
+        ],
+        "id": "52df1eb3-583f-4835-aea6-19dff772e70d",
+        "name": "inform john yes"
+      },
+      {
+        "parameters": {
+          "resource": "member",
+          "operation": "timeout",
+          "guildId": {
+            "__rl": true,
+            "value": "={{ $('kick void?').item.json.guild }}",
+            "mode": "id"
+          },
+          "userId": {
+            "__rl": true,
+            "value": "1007006928976752660",
+            "mode": "id"
+          },
+          "duration": 60,
+          "reason": "other",
+          "reasonCustom": "Sleeping in VC"
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          -256,
+          160
+        ],
+        "id": "23539092-709b-49e8-bcea-11e79f879b49",
+        "name": "timeout void",
+        "webhookId": "102b5f5e-ccdf-4798-b68f-f3217cab3217",
+        "credentials": {
+          "discordBotApi": {
+            "id": "3SFVnF75zf8a4W5o",
+            "name": "John Helldiver"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "5332e115-fb47-4e79-81db-864c3a1ab48f",
+                "name": "was-void-kicked",
+                "value": "NO Void has been allowed to stay in the VC",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.5,
+        "position": [
+          80,
+          192
+        ],
+        "id": "addf737a-5025-4432-905d-034e4cdb56de",
+        "name": "inform john no"
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "={{ $json.guild }}",
+            "mode": "id"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "={{ $json.channel }}",
+            "mode": "id"
+          },
+          "content": "Should I kick Void from the VC? (react with \":rabbit2:\" if yes)",
+          "options": {
+            "message_reference": "={{ $json.message }}"
+          }
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          -256,
+          -32
+        ],
+        "id": "e36fb3c7-5dc3-4b80-83d9-b11bd7603b9c",
+        "name": "ask to kick",
+        "webhookId": "d8bf9618-dde7-474e-92c3-be3357141feb",
+        "credentials": {
+          "discordBotApi": {
+            "id": "3SFVnF75zf8a4W5o",
+            "name": "John Helldiver"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "react with bunny": {
+        "main": [
+          [
+            {
+              "node": "60 sec wait",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "60 sec wait": {
+        "main": [
+          [
+            {
+              "node": "get bunny reacts",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "get bunny reacts": {
+        "main": [
+          [
+            {
+              "node": "count bunnys",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "kick void?": {
+        "main": [
+          [
+            {
+              "node": "ask to kick",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "count bunnys": {
+        "main": [
+          [
+            {
+              "node": "more than 2?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "more than 2?": {
+        "main": [
+          [
+            {
+              "node": "timeout void",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "inform john no",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "timeout void": {
+        "main": [
+          [
+            {
+              "node": "inform john yes",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ask to kick": {
+        "main": [
+          [
+            {
+              "node": "react with bunny",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "nodeGroups": [],
+    "authors": "Eon Hunt",
+    "name": "Version 3c4f6a23",
+    "description": "",
+    "autosaved": true,
+    "createdAt": "2026-10-16T07:56:03.073Z",
+    "updatedAt": "2026-10-16T07:56:21.213Z"
+  },
+  "activeVersionId": "3c4f6a23-42be-4c32-8280-9678d4f0c358",
+  "connections": {
+    "react with bunny": {
+      "main": [
+        [
+          {
+            "node": "60 sec wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "60 sec wait": {
+      "main": [
+        [
+          {
+            "node": "get bunny reacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get bunny reacts": {
+      "main": [
+        [
+          {
+            "node": "count bunnys",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "kick void?": {
+      "main": [
+        [
+          {
+            "node": "ask to kick",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "count bunnys": {
+      "main": [
+        [
+          {
+            "node": "more than 2?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "more than 2?": {
+      "main": [
+        [
+          {
+            "node": "timeout void",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "inform john no",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "timeout void": {
+      "main": [
+        [
+          {
+            "node": "inform john yes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ask to kick": {
+      "main": [
+        [
+          {
+            "node": "react with bunny",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-10-06T16:18:49.721Z",
+  "id": "wo7UyPQVNxh8EQbR",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Sleepy Bunny Kick",
+  "nodeGroups": [],
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "add-reaction",
+        "msgOpGuildIds": "={{ $('kick void?').item.json.guild }}",
+        "msgOpChannelId": "={{ $('kick void?').item.json.channel }}",
+        "msgOpMessageId": "={{ $json.id }}",
+        "reactionEmoji": "%F0%9F%90%87"
+      },
+      "type": "n8n-nodes-discord-bots.discordBot",
+      "typeVersion": 1,
+      "position": [
+        -128,
+        -32
+      ],
+      "id": "95168d71-e17c-456c-a56e-dae4b690d9b9",
+      "name": "react with bunny",
+      "retryOnFail": true,
+      "maxTries": 3,
+      "credentials": {
+        "discordBotApi": {
+          "id": "3SFVnF75zf8a4W5o",
+          "name": "John Helldiver"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 60
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        -32
+      ],
+      "id": "8759ed5f-8084-4cd3-a6a6-931facf741c2",
+      "name": "60 sec wait",
+      "webhookId": "36ba16f9-3dfe-4f99-9926-b9a6a8d560d5"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\n// Handles both multiple n8n items and a single item containing an array\nconst total = Array.isArray(items[0]?.json) \n  ? items[0].json.length \n  : items.length;\n\nreturn [{\n  json: {\n    totalReactions: total\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        256,
+        -32
+      ],
+      "id": "609f39a0-726b-4f8f-ac9e-bdc0ff4d171b",
+      "name": "count bunnys"
+    },
+    {
+      "parameters": {
+        "url": "=https://discord.com/api/v10/channels/{{ $('kick void?').item.json.channel }}/messages/{{ $('ask to kick').item.json.id }}/reactions/%F0%9F%90%87",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "discordBotApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        128,
+        -32
+      ],
+      "id": "a3844a30-bfdb-4c63-bb25-fe8aff8010c6",
+      "name": "get bunny reacts",
+      "credentials": {
+        "discordBotApi": {
+          "id": "3SFVnF75zf8a4W5o",
+          "name": "John Helldiver"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "guild"
+            },
+            {
+              "name": "channel"
+            },
+            {
+              "name": "message"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -384,
+        -32
+      ],
+      "id": "289f7e6b-368a-44d3-8f9e-fd428b8de858",
+      "name": "kick void?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f3784ff2-8194-4791-ba81-08dce1c9b4c3",
+              "leftValue": "={{ $json.totalReactions }}",
+              "rightValue": 3,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        384,
+        -32
+      ],
+      "id": "bb2b8801-2586-4b5f-b373-72b5a86e7d17",
+      "name": "more than 2?"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "faae63ea-88fe-480b-8285-92bd67ea8096",
+              "name": "was-void-kicked",
+              "value": "YES Void has been kicked from the VC",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        -112,
+        160
+      ],
+      "id": "52df1eb3-583f-4835-aea6-19dff772e70d",
+      "name": "inform john yes"
+    },
+    {
+      "parameters": {
+        "resource": "member",
+        "operation": "timeout",
+        "guildId": {
+          "__rl": true,
+          "value": "={{ $('kick void?').item.json.guild }}",
+          "mode": "id"
+        },
+        "userId": {
+          "__rl": true,
+          "value": "1007006928976752660",
+          "mode": "id"
+        },
+        "duration": 60,
+        "reason": "other",
+        "reasonCustom": "Sleeping in VC"
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -256,
+        160
+      ],
+      "id": "23539092-709b-49e8-bcea-11e79f879b49",
+      "name": "timeout void",
+      "webhookId": "102b5f5e-ccdf-4798-b68f-f3217cab3217",
+      "credentials": {
+        "discordBotApi": {
+          "id": "3SFVnF75zf8a4W5o",
+          "name": "John Helldiver"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5332e115-fb47-4e79-81db-864c3a1ab48f",
+              "name": "was-void-kicked",
+              "value": "NO Void has been allowed to stay in the VC",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        80,
+        192
+      ],
+      "id": "addf737a-5025-4432-905d-034e4cdb56de",
+      "name": "inform john no"
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "={{ $json.guild }}",
+          "mode": "id"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "={{ $json.channel }}",
+          "mode": "id"
+        },
+        "content": "Should I kick Void from the VC? (react with \":rabbit2:\" if yes)",
+        "options": {
+          "message_reference": "={{ $json.message }}"
+        }
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -256,
+        -32
+      ],
+      "id": "e36fb3c7-5dc3-4b80-83d9-b11bd7603b9c",
+      "name": "ask to kick",
+      "webhookId": "d8bf9618-dde7-474e-92c3-be3357141feb",
+      "credentials": {
+        "discordBotApi": {
+          "id": "3SFVnF75zf8a4W5o",
+          "name": "John Helldiver"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "kick void?": [
+      {
+        "json": {
+          "guild": "1199140895937810473",
+          "channel": "1396619504959619145",
+          "message": "1560561412353294467"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "shared": [
+    {
+      "role": "workflow:owner",
+      "workflowId": "wo7UyPQVNxh8EQbR",
+      "projectId": "MgjxpSRAFCz8XSCR",
+      "createdAt": "2026-10-06T16:18:49.721Z",
+      "updatedAt": "2026-10-06T16:18:49.721Z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-10-16T07:56:03.071Z",
+  "versionId": "3c4f6a23-42be-4c32-8280-9678d4f0c358"
+}
