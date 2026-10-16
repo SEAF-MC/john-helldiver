@@ -1,7 +1,7 @@
 {
   "active": true,
   "activeVersion": {
-    "versionId": "5793bf06-15cd-497f-9d2c-b5bae1b60673",
+    "versionId": "d0d2aaf5-1beb-4247-9f12-8a7d2c523562",
     "workflowId": "jktP3h8Rs0UvrRZi",
     "nodes": [
       {
@@ -552,7 +552,7 @@
       },
       {
         "parameters": {
-          "description": "Determines if VoidBunny should be kicked from the voice channel and returns the result. Do NOT use unless someone explicitly asks. Ex: \"Can you remove void from general 1\"",
+          "description": "Determines if VoidBunny should be kicked from the voice channel informs you of the outcome via 'was-void-kicked'. Do NOT use unless someone explicitly asks. Ex: \"Can you remove void from general 1\"",
           "workflowId": {
             "__rl": true,
             "value": "wo7UyPQVNxh8EQbR",
@@ -847,13 +847,13 @@
     },
     "nodeGroups": [],
     "authors": "Eon Hunt",
-    "name": "Version 5793bf06",
+    "name": "Version d0d2aaf5",
     "description": "",
     "autosaved": true,
-    "createdAt": "2026-10-06T19:46:30.197Z",
-    "updatedAt": "2026-10-12T19:29:52.591Z"
+    "createdAt": "2026-10-16T07:27:58.174Z",
+    "updatedAt": "2026-10-16T07:29:26.781Z"
   },
-  "activeVersionId": "5793bf06-15cd-497f-9d2c-b5bae1b60673",
+  "activeVersionId": "d0d2aaf5-1beb-4247-9f12-8a7d2c523562",
   "connections": {
     "AI Agent": {
       "main": [
@@ -1642,7 +1642,7 @@
     },
     {
       "parameters": {
-        "description": "Determines if VoidBunny should be kicked from the voice channel and returns the result. Do NOT use unless someone explicitly asks. Ex: \"Can you remove void from general 1\"",
+        "description": "Determines if VoidBunny should be kicked from the voice channel informs you of the outcome via 'was-void-kicked'. Do NOT use unless someone explicitly asks. Ex: \"Can you remove void from general 1\"",
         "workflowId": {
           "__rl": true,
           "value": "wo7UyPQVNxh8EQbR",
@@ -1722,6 +1722,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-10-06T19:46:30.195Z",
-  "versionId": "5793bf06-15cd-497f-9d2c-b5bae1b60673"
+  "updatedAt": "2026-10-16T07:27:58.169Z",
+  "versionId": "d0d2aaf5-1beb-4247-9f12-8a7d2c523562"
 }
