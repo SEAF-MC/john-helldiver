@@ -1,7 +1,7 @@
 {
   "active": true,
   "activeVersion": {
-    "versionId": "c2672e37-dccb-43a6-867a-39d13c67c0a6",
+    "versionId": "5793bf06-15cd-497f-9d2c-b5bae1b60673",
     "workflowId": "jktP3h8Rs0UvrRZi",
     "nodes": [
       {
@@ -45,7 +45,7 @@
         "type": "n8n-nodes-base.httpRequestTool",
         "typeVersion": 4.4,
         "position": [
-          -432,
+          -656,
           272
         ],
         "id": "cbf5f6be-e458-4f0e-9e45-630e9ee42dbc",
@@ -73,7 +73,7 @@
         "type": "n8n-nodes-base.httpRequestTool",
         "typeVersion": 4.4,
         "position": [
-          -320,
+          -544,
           272
         ],
         "id": "80f8bfef-f7e2-4179-b6c5-5a7bd4c16b1c",
@@ -123,8 +123,8 @@
         "type": "n8n-nodes-base.googleDocsTool",
         "typeVersion": 2,
         "position": [
-          -656,
-          272
+          -880,
+          416
         ],
         "id": "cc4cc9fa-6d3c-49b6-8334-4e9ca80ba2cd",
         "name": "opinions",
@@ -157,7 +157,7 @@
         "type": "n8n-nodes-base.httpRequestTool",
         "typeVersion": 4.4,
         "position": [
-          -208,
+          -432,
           272
         ],
         "id": "fdf28136-9e84-41db-8413-22a464f816a7",
@@ -185,7 +185,7 @@
         "type": "n8n-nodes-base.httpRequestTool",
         "typeVersion": 4.4,
         "position": [
-          -96,
+          -320,
           272
         ],
         "id": "ef2cba7b-4330-4e64-ba01-7f8e17c8a12f",
@@ -213,7 +213,7 @@
         "type": "n8n-nodes-base.httpRequestTool",
         "typeVersion": 4.4,
         "position": [
-          16,
+          -208,
           272
         ],
         "id": "46b887ab-7d7d-424e-948f-93d037342ee5",
@@ -280,7 +280,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.4,
         "position": [
-          496,
+          304,
           96
         ],
         "id": "d3a6fd3d-fad6-4d60-8ab0-1c01ddd4c471",
@@ -328,7 +328,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.5,
         "position": [
-          496,
+          304,
           -64
         ],
         "id": "ee9e9cc7-d238-4f2a-b6e8-6d2a32b87aa4",
@@ -343,7 +343,7 @@
         "type": "n8n-nodes-base.httpRequestTool",
         "typeVersion": 4.5,
         "position": [
-          128,
+          -96,
           272
         ],
         "id": "44232030-ea2d-4fb4-aa21-4fba20ff0c11",
@@ -360,7 +360,7 @@
         "type": "n8n-nodes-base.httpRequestTool",
         "typeVersion": 4.5,
         "position": [
-          240,
+          16,
           272
         ],
         "id": "be6d241d-cf9e-4699-b634-48ab58d92d2a",
@@ -383,7 +383,7 @@
         "type": "n8n-nodes-base.httpRequestTool",
         "typeVersion": 4.5,
         "position": [
-          352,
+          128,
           272
         ],
         "id": "f8c5c566-3337-4954-bf4b-a49b1987e400",
@@ -411,7 +411,7 @@
         "type": "@n8n/n8n-nodes-langchain.ollama",
         "typeVersion": 1,
         "position": [
-          496,
+          304,
           256
         ],
         "id": "a671a8e3-98b2-413c-9e53-f526d8a91f72",
@@ -433,8 +433,8 @@
         "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
         "typeVersion": 1.6,
         "position": [
-          -768,
-          272
+          -992,
+          416
         ],
         "id": "67bdff13-23ee-4776-9325-154ff0b34daf",
         "name": "redis memory",
@@ -482,7 +482,9 @@
             "1199140895937810473"
           ],
           "pattern": "bot-mentioned",
-          "additionalFields": {}
+          "additionalFields": {
+            "includeBotMessages": true
+          }
         },
         "type": "n8n-nodes-discord-bots.discordBotTrigger",
         "typeVersion": 1,
@@ -542,11 +544,74 @@
         "type": "n8n-nodes-base.dateTimeTool",
         "typeVersion": 2,
         "position": [
-          -544,
+          -768,
           272
         ],
         "id": "e0917255-b4a6-4254-b9e5-f7004236b80e",
         "name": "date & time"
+      },
+      {
+        "parameters": {
+          "description": "Determines if VoidBunny should be kicked from the voice channel and returns the result. Do NOT use unless someone explicitly asks. Ex: \"Can you remove void from general 1\"",
+          "workflowId": {
+            "__rl": true,
+            "value": "wo7UyPQVNxh8EQbR",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/wo7UyPQVNxh8EQbR",
+            "cachedResultName": "Sleepy Bunny Kick"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "guild": "={{ $('watch for ping').item.json.guildId }}",
+              "channel": "={{ $('watch for ping').item.json.channelId }}",
+              "message": "={{ $('watch for ping').item.json.messageId }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "guild",
+                "displayName": "guild",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "channel",
+                "displayName": "channel",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "message",
+                "displayName": "message",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+        "typeVersion": 2.2,
+        "position": [
+          -768,
+          416
+        ],
+        "id": "dac7c6bb-0654-4c16-9df0-d09967ac81c3",
+        "name": "void kick"
       }
     ],
     "connections": {
@@ -767,17 +832,28 @@
             }
           ]
         ]
+      },
+      "void kick": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "nodeGroups": [],
     "authors": "Eon Hunt",
-    "name": "Version c2672e37",
+    "name": "Version 5793bf06",
     "description": "",
     "autosaved": true,
-    "createdAt": "2026-09-19T05:14:22.861Z",
-    "updatedAt": "2026-09-19T05:14:31.093Z"
+    "createdAt": "2026-10-06T19:46:30.197Z",
+    "updatedAt": "2026-10-12T19:29:52.591Z"
   },
-  "activeVersionId": "c2672e37-dccb-43a6-867a-39d13c67c0a6",
+  "activeVersionId": "5793bf06-15cd-497f-9d2c-b5bae1b60673",
   "connections": {
     "AI Agent": {
       "main": [
@@ -996,6 +1072,17 @@
           }
         ]
       ]
+    },
+    "void kick": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-09-15T22:44:48.434Z",
@@ -1048,7 +1135,7 @@
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.4,
       "position": [
-        -432,
+        -656,
         272
       ],
       "id": "cbf5f6be-e458-4f0e-9e45-630e9ee42dbc",
@@ -1076,7 +1163,7 @@
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.4,
       "position": [
-        -320,
+        -544,
         272
       ],
       "id": "80f8bfef-f7e2-4179-b6c5-5a7bd4c16b1c",
@@ -1126,8 +1213,8 @@
       "type": "n8n-nodes-base.googleDocsTool",
       "typeVersion": 2,
       "position": [
-        -656,
-        272
+        -880,
+        416
       ],
       "id": "cc4cc9fa-6d3c-49b6-8334-4e9ca80ba2cd",
       "name": "opinions",
@@ -1160,7 +1247,7 @@
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.4,
       "position": [
-        -208,
+        -432,
         272
       ],
       "id": "fdf28136-9e84-41db-8413-22a464f816a7",
@@ -1188,7 +1275,7 @@
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.4,
       "position": [
-        -96,
+        -320,
         272
       ],
       "id": "ef2cba7b-4330-4e64-ba01-7f8e17c8a12f",
@@ -1216,7 +1303,7 @@
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.4,
       "position": [
-        16,
+        -208,
         272
       ],
       "id": "46b887ab-7d7d-424e-948f-93d037342ee5",
@@ -1283,7 +1370,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        496,
+        304,
         96
       ],
       "id": "d3a6fd3d-fad6-4d60-8ab0-1c01ddd4c471",
@@ -1331,7 +1418,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        496,
+        304,
         -64
       ],
       "id": "ee9e9cc7-d238-4f2a-b6e8-6d2a32b87aa4",
@@ -1346,7 +1433,7 @@
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.5,
       "position": [
-        128,
+        -96,
         272
       ],
       "id": "44232030-ea2d-4fb4-aa21-4fba20ff0c11",
@@ -1363,7 +1450,7 @@
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.5,
       "position": [
-        240,
+        16,
         272
       ],
       "id": "be6d241d-cf9e-4699-b634-48ab58d92d2a",
@@ -1386,7 +1473,7 @@
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.5,
       "position": [
-        352,
+        128,
         272
       ],
       "id": "f8c5c566-3337-4954-bf4b-a49b1987e400",
@@ -1414,7 +1501,7 @@
       "type": "@n8n/n8n-nodes-langchain.ollama",
       "typeVersion": 1,
       "position": [
-        496,
+        304,
         256
       ],
       "id": "a671a8e3-98b2-413c-9e53-f526d8a91f72",
@@ -1436,8 +1523,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
       "typeVersion": 1.6,
       "position": [
-        -768,
-        272
+        -992,
+        416
       ],
       "id": "67bdff13-23ee-4776-9325-154ff0b34daf",
       "name": "redis memory",
@@ -1485,7 +1572,9 @@
           "1199140895937810473"
         ],
         "pattern": "bot-mentioned",
-        "additionalFields": {}
+        "additionalFields": {
+          "includeBotMessages": true
+        }
       },
       "type": "n8n-nodes-discord-bots.discordBotTrigger",
       "typeVersion": 1,
@@ -1545,11 +1634,74 @@
       "type": "n8n-nodes-base.dateTimeTool",
       "typeVersion": 2,
       "position": [
-        -544,
+        -768,
         272
       ],
       "id": "e0917255-b4a6-4254-b9e5-f7004236b80e",
       "name": "date & time"
+    },
+    {
+      "parameters": {
+        "description": "Determines if VoidBunny should be kicked from the voice channel and returns the result. Do NOT use unless someone explicitly asks. Ex: \"Can you remove void from general 1\"",
+        "workflowId": {
+          "__rl": true,
+          "value": "wo7UyPQVNxh8EQbR",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/wo7UyPQVNxh8EQbR",
+          "cachedResultName": "Sleepy Bunny Kick"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "guild": "={{ $('watch for ping').item.json.guildId }}",
+            "channel": "={{ $('watch for ping').item.json.channelId }}",
+            "message": "={{ $('watch for ping').item.json.messageId }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "guild",
+              "displayName": "guild",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -768,
+        416
+      ],
+      "id": "dac7c6bb-0654-4c16-9df0-d09967ac81c3",
+      "name": "void kick"
     }
   ],
   "pinData": {},
@@ -1570,6 +1722,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-09-19T05:14:22.859Z",
-  "versionId": "c2672e37-dccb-43a6-867a-39d13c67c0a6"
+  "updatedAt": "2026-10-06T19:46:30.195Z",
+  "versionId": "5793bf06-15cd-497f-9d2c-b5bae1b60673"
 }
