@@ -1,7 +1,7 @@
 {
   "active": true,
   "activeVersion": {
-    "versionId": "d1714c16-2360-4d8b-80bc-561cbf944d8d",
+    "versionId": "c40c1650-3f2e-4f4c-aa8f-8b5b01c52430",
     "workflowId": "vHOx4WpVss6Mn7hm",
     "nodes": [
       {
@@ -283,62 +283,6 @@
       },
       {
         "parameters": {
-          "operation": "respond-to-interaction",
-          "content": "=<@{{ $('start reaction add').item.json.userId }}> seems to be poking arround where they shouldn't be.",
-          "replyEmbeds": {},
-          "replyComponents": {},
-          "useInputInteractionData": false,
-          "interactionId": "={{ $('start reaction add').item.json.interactionId }}",
-          "interactionToken": "={{ $('start reaction add').item.json.interactionToken }}"
-        },
-        "type": "n8n-nodes-discord-bots.discordBot",
-        "typeVersion": 1,
-        "position": [
-          784,
-          -16
-        ],
-        "id": "dd6afe3e-c5d4-4b85-a8eb-b2777144e9e4",
-        "name": "nuh uh",
-        "credentials": {
-          "discordBotApi": {
-            "id": "3SFVnF75zf8a4W5o",
-            "name": "John Helldiver"
-          }
-        },
-        "disabled": true
-      },
-      {
-        "parameters": {
-          "targetType": "user-dm",
-          "userId": "={{ $('start reaction add').item.json.userId }}",
-          "content": "Prepare for the 500KG rapidly descending above your current location.\nhttps://klipy.com/gifs/magic-word",
-          "embedBuilder": {
-            "embed": []
-          },
-          "mediaGalleryBuilder": {
-            "gallery": []
-          },
-          "fileBuilder": {
-            "file": []
-          }
-        },
-        "type": "n8n-nodes-discord-bots.discordBot",
-        "typeVersion": 1,
-        "position": [
-          640,
-          -16
-        ],
-        "id": "f5ea9a7b-d0bf-42ea-a11d-42c064bfb729",
-        "name": "nuh uh dm",
-        "credentials": {
-          "discordBotApi": {
-            "id": "3SFVnF75zf8a4W5o",
-            "name": "John Helldiver"
-          }
-        }
-      },
-      {
-        "parameters": {
           "resource": "message",
           "operation": "react",
           "guildId": {
@@ -461,62 +405,6 @@
         ],
         "id": "1721ff05-ab5d-4630-9db8-7c8fd35ec38e",
         "name": "admin?1"
-      },
-      {
-        "parameters": {
-          "operation": "respond-to-interaction",
-          "content": "=<@{{ $('start reaction remove').item.json.userId }}> seems to be poking arround where they shouldn't be.",
-          "replyEmbeds": {},
-          "replyComponents": {},
-          "useInputInteractionData": false,
-          "interactionId": "={{ $('start reaction remove').item.json.interactionId }}",
-          "interactionToken": "={{ $('start reaction remove').item.json.interactionToken }}"
-        },
-        "type": "n8n-nodes-discord-bots.discordBot",
-        "typeVersion": 1,
-        "position": [
-          784,
-          304
-        ],
-        "id": "115d9fd7-3d82-43ac-8686-2bc542f67445",
-        "name": "nuh uh1",
-        "credentials": {
-          "discordBotApi": {
-            "id": "3SFVnF75zf8a4W5o",
-            "name": "John Helldiver"
-          }
-        },
-        "disabled": true
-      },
-      {
-        "parameters": {
-          "targetType": "user-dm",
-          "userId": "={{ $('start reaction remove').item.json.userId }}",
-          "content": "Prepare for the 500KG rapidly descending above your current location.\nhttps://klipy.com/gifs/magic-word",
-          "embedBuilder": {
-            "embed": []
-          },
-          "mediaGalleryBuilder": {
-            "gallery": []
-          },
-          "fileBuilder": {
-            "file": []
-          }
-        },
-        "type": "n8n-nodes-discord-bots.discordBot",
-        "typeVersion": 1,
-        "position": [
-          640,
-          304
-        ],
-        "id": "ef5ea05a-dac8-48b5-b169-5e893b2b572e",
-        "name": "nuh uh dm1",
-        "credentials": {
-          "discordBotApi": {
-            "id": "3SFVnF75zf8a4W5o",
-            "name": "John Helldiver"
-          }
-        }
       },
       {
         "parameters": {
@@ -801,6 +689,126 @@
             "name": "John Helldiver"
           }
         }
+      },
+      {
+        "parameters": {
+          "targetType": "user-dm",
+          "userId": "={{ $('start reaction add').item.json.userId }}",
+          "content": "Prepare for the 500KG rapidly descending above your current location.",
+          "embedBuilder": {
+            "embed": []
+          },
+          "mediaGalleryBuilder": {
+            "gallery": []
+          },
+          "fileBuilder": {
+            "file": []
+          }
+        },
+        "type": "n8n-nodes-discord-bots.discordBot",
+        "typeVersion": 1,
+        "position": [
+          640,
+          -16
+        ],
+        "id": "f5ea9a7b-d0bf-42ea-a11d-42c064bfb729",
+        "name": "500kg dm",
+        "credentials": {
+          "discordBotApi": {
+            "id": "3SFVnF75zf8a4W5o",
+            "name": "John Helldiver"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "targetType": "user-dm",
+          "userId": "={{ $('start reaction remove').item.json.userId }}",
+          "content": "Prepare for the 500KG rapidly descending above your current location.",
+          "embedBuilder": {
+            "embed": []
+          },
+          "mediaGalleryBuilder": {
+            "gallery": []
+          },
+          "fileBuilder": {
+            "file": []
+          }
+        },
+        "type": "n8n-nodes-discord-bots.discordBot",
+        "typeVersion": 1,
+        "position": [
+          640,
+          304
+        ],
+        "id": "ef5ea05a-dac8-48b5-b169-5e893b2b572e",
+        "name": "500kg dm1",
+        "credentials": {
+          "discordBotApi": {
+            "id": "3SFVnF75zf8a4W5o",
+            "name": "John Helldiver"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "targetType": "user-dm",
+          "userId": "={{ $('start reaction remove').item.json.userId }}",
+          "content": "https://klipy.com/gifs/magic-word",
+          "embedBuilder": {
+            "embed": []
+          },
+          "mediaGalleryBuilder": {
+            "gallery": []
+          },
+          "fileBuilder": {
+            "file": []
+          }
+        },
+        "type": "n8n-nodes-discord-bots.discordBot",
+        "typeVersion": 1,
+        "position": [
+          784,
+          304
+        ],
+        "id": "a131ddf4-f8e7-477d-a575-658bb86cbdfd",
+        "name": "nuh uh dm1",
+        "credentials": {
+          "discordBotApi": {
+            "id": "3SFVnF75zf8a4W5o",
+            "name": "John Helldiver"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "targetType": "user-dm",
+          "userId": "={{ $('start reaction add').item.json.userId }}",
+          "content": "https://klipy.com/gifs/magic-word",
+          "embedBuilder": {
+            "embed": []
+          },
+          "mediaGalleryBuilder": {
+            "gallery": []
+          },
+          "fileBuilder": {
+            "file": []
+          }
+        },
+        "type": "n8n-nodes-discord-bots.discordBot",
+        "typeVersion": 1,
+        "position": [
+          784,
+          -16
+        ],
+        "id": "7b004135-db62-41a5-8b23-77464eb778f9",
+        "name": "nuh uh dm",
+        "credentials": {
+          "discordBotApi": {
+            "id": "3SFVnF75zf8a4W5o",
+            "name": "John Helldiver"
+          }
+        }
       }
     ],
     "connections": {
@@ -886,18 +894,7 @@
           ],
           [
             {
-              "node": "nuh uh dm",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "nuh uh dm": {
-        "main": [
-          [
-            {
-              "node": "nuh uh",
+              "node": "500kg dm",
               "type": "main",
               "index": 0
             }
@@ -960,18 +957,7 @@
           ],
           [
             {
-              "node": "nuh uh dm1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "nuh uh dm1": {
-        "main": [
-          [
-            {
-              "node": "nuh uh1",
+              "node": "500kg dm1",
               "type": "main",
               "index": 0
             }
@@ -1043,17 +1029,39 @@
             }
           ]
         ]
+      },
+      "500kg dm": {
+        "main": [
+          [
+            {
+              "node": "nuh uh dm",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "500kg dm1": {
+        "main": [
+          [
+            {
+              "node": "nuh uh dm1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "nodeGroups": [],
     "authors": "Eon Hunt",
-    "name": "Version d1714c16",
+    "name": "Version c40c1650",
     "description": "",
     "autosaved": true,
-    "createdAt": "2026-09-19T03:51:19.608Z",
-    "updatedAt": "2026-09-19T03:51:23.156Z"
+    "createdAt": "2026-09-28T16:17:09.785Z",
+    "updatedAt": "2026-10-12T19:30:32.083Z"
   },
-  "activeVersionId": "d1714c16-2360-4d8b-80bc-561cbf944d8d",
+  "activeVersionId": "c40c1650-3f2e-4f4c-aa8f-8b5b01c52430",
   "connections": {
     "start reaction add": {
       "main": [
@@ -1137,18 +1145,7 @@
         ],
         [
           {
-            "node": "nuh uh dm",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "nuh uh dm": {
-      "main": [
-        [
-          {
-            "node": "nuh uh",
+            "node": "500kg dm",
             "type": "main",
             "index": 0
           }
@@ -1211,18 +1208,7 @@
         ],
         [
           {
-            "node": "nuh uh dm1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "nuh uh dm1": {
-      "main": [
-        [
-          {
-            "node": "nuh uh1",
+            "node": "500kg dm1",
             "type": "main",
             "index": 0
           }
@@ -1289,6 +1275,28 @@
         [
           {
             "node": "mark remove done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "500kg dm": {
+      "main": [
+        [
+          {
+            "node": "nuh uh dm",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "500kg dm1": {
+      "main": [
+        [
+          {
+            "node": "nuh uh dm1",
             "type": "main",
             "index": 0
           }
@@ -1584,62 +1592,6 @@
     },
     {
       "parameters": {
-        "operation": "respond-to-interaction",
-        "content": "=<@{{ $('start reaction add').item.json.userId }}> seems to be poking arround where they shouldn't be.",
-        "replyEmbeds": {},
-        "replyComponents": {},
-        "useInputInteractionData": false,
-        "interactionId": "={{ $('start reaction add').item.json.interactionId }}",
-        "interactionToken": "={{ $('start reaction add').item.json.interactionToken }}"
-      },
-      "type": "n8n-nodes-discord-bots.discordBot",
-      "typeVersion": 1,
-      "position": [
-        784,
-        -16
-      ],
-      "id": "dd6afe3e-c5d4-4b85-a8eb-b2777144e9e4",
-      "name": "nuh uh",
-      "credentials": {
-        "discordBotApi": {
-          "id": "3SFVnF75zf8a4W5o",
-          "name": "John Helldiver"
-        }
-      },
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "targetType": "user-dm",
-        "userId": "={{ $('start reaction add').item.json.userId }}",
-        "content": "Prepare for the 500KG rapidly descending above your current location.\nhttps://klipy.com/gifs/magic-word",
-        "embedBuilder": {
-          "embed": []
-        },
-        "mediaGalleryBuilder": {
-          "gallery": []
-        },
-        "fileBuilder": {
-          "file": []
-        }
-      },
-      "type": "n8n-nodes-discord-bots.discordBot",
-      "typeVersion": 1,
-      "position": [
-        640,
-        -16
-      ],
-      "id": "f5ea9a7b-d0bf-42ea-a11d-42c064bfb729",
-      "name": "nuh uh dm",
-      "credentials": {
-        "discordBotApi": {
-          "id": "3SFVnF75zf8a4W5o",
-          "name": "John Helldiver"
-        }
-      }
-    },
-    {
-      "parameters": {
         "resource": "message",
         "operation": "react",
         "guildId": {
@@ -1762,62 +1714,6 @@
       ],
       "id": "1721ff05-ab5d-4630-9db8-7c8fd35ec38e",
       "name": "admin?1"
-    },
-    {
-      "parameters": {
-        "operation": "respond-to-interaction",
-        "content": "=<@{{ $('start reaction remove').item.json.userId }}> seems to be poking arround where they shouldn't be.",
-        "replyEmbeds": {},
-        "replyComponents": {},
-        "useInputInteractionData": false,
-        "interactionId": "={{ $('start reaction remove').item.json.interactionId }}",
-        "interactionToken": "={{ $('start reaction remove').item.json.interactionToken }}"
-      },
-      "type": "n8n-nodes-discord-bots.discordBot",
-      "typeVersion": 1,
-      "position": [
-        784,
-        304
-      ],
-      "id": "115d9fd7-3d82-43ac-8686-2bc542f67445",
-      "name": "nuh uh1",
-      "credentials": {
-        "discordBotApi": {
-          "id": "3SFVnF75zf8a4W5o",
-          "name": "John Helldiver"
-        }
-      },
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "targetType": "user-dm",
-        "userId": "={{ $('start reaction remove').item.json.userId }}",
-        "content": "Prepare for the 500KG rapidly descending above your current location.\nhttps://klipy.com/gifs/magic-word",
-        "embedBuilder": {
-          "embed": []
-        },
-        "mediaGalleryBuilder": {
-          "gallery": []
-        },
-        "fileBuilder": {
-          "file": []
-        }
-      },
-      "type": "n8n-nodes-discord-bots.discordBot",
-      "typeVersion": 1,
-      "position": [
-        640,
-        304
-      ],
-      "id": "ef5ea05a-dac8-48b5-b169-5e893b2b572e",
-      "name": "nuh uh dm1",
-      "credentials": {
-        "discordBotApi": {
-          "id": "3SFVnF75zf8a4W5o",
-          "name": "John Helldiver"
-        }
-      }
     },
     {
       "parameters": {
@@ -2102,6 +1998,126 @@
           "name": "John Helldiver"
         }
       }
+    },
+    {
+      "parameters": {
+        "targetType": "user-dm",
+        "userId": "={{ $('start reaction add').item.json.userId }}",
+        "content": "Prepare for the 500KG rapidly descending above your current location.",
+        "embedBuilder": {
+          "embed": []
+        },
+        "mediaGalleryBuilder": {
+          "gallery": []
+        },
+        "fileBuilder": {
+          "file": []
+        }
+      },
+      "type": "n8n-nodes-discord-bots.discordBot",
+      "typeVersion": 1,
+      "position": [
+        640,
+        -16
+      ],
+      "id": "f5ea9a7b-d0bf-42ea-a11d-42c064bfb729",
+      "name": "500kg dm",
+      "credentials": {
+        "discordBotApi": {
+          "id": "3SFVnF75zf8a4W5o",
+          "name": "John Helldiver"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "targetType": "user-dm",
+        "userId": "={{ $('start reaction remove').item.json.userId }}",
+        "content": "Prepare for the 500KG rapidly descending above your current location.",
+        "embedBuilder": {
+          "embed": []
+        },
+        "mediaGalleryBuilder": {
+          "gallery": []
+        },
+        "fileBuilder": {
+          "file": []
+        }
+      },
+      "type": "n8n-nodes-discord-bots.discordBot",
+      "typeVersion": 1,
+      "position": [
+        640,
+        304
+      ],
+      "id": "ef5ea05a-dac8-48b5-b169-5e893b2b572e",
+      "name": "500kg dm1",
+      "credentials": {
+        "discordBotApi": {
+          "id": "3SFVnF75zf8a4W5o",
+          "name": "John Helldiver"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "targetType": "user-dm",
+        "userId": "={{ $('start reaction remove').item.json.userId }}",
+        "content": "https://klipy.com/gifs/magic-word",
+        "embedBuilder": {
+          "embed": []
+        },
+        "mediaGalleryBuilder": {
+          "gallery": []
+        },
+        "fileBuilder": {
+          "file": []
+        }
+      },
+      "type": "n8n-nodes-discord-bots.discordBot",
+      "typeVersion": 1,
+      "position": [
+        784,
+        304
+      ],
+      "id": "a131ddf4-f8e7-477d-a575-658bb86cbdfd",
+      "name": "nuh uh dm1",
+      "credentials": {
+        "discordBotApi": {
+          "id": "3SFVnF75zf8a4W5o",
+          "name": "John Helldiver"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "targetType": "user-dm",
+        "userId": "={{ $('start reaction add').item.json.userId }}",
+        "content": "https://klipy.com/gifs/magic-word",
+        "embedBuilder": {
+          "embed": []
+        },
+        "mediaGalleryBuilder": {
+          "gallery": []
+        },
+        "fileBuilder": {
+          "file": []
+        }
+      },
+      "type": "n8n-nodes-discord-bots.discordBot",
+      "typeVersion": 1,
+      "position": [
+        784,
+        -16
+      ],
+      "id": "7b004135-db62-41a5-8b23-77464eb778f9",
+      "name": "nuh uh dm",
+      "credentials": {
+        "discordBotApi": {
+          "id": "3SFVnF75zf8a4W5o",
+          "name": "John Helldiver"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -2121,6 +2137,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 4,
-  "updatedAt": "2026-09-19T03:51:19.606Z",
-  "versionId": "d1714c16-2360-4d8b-80bc-561cbf944d8d"
+  "updatedAt": "2026-09-28T16:17:09.773Z",
+  "versionId": "c40c1650-3f2e-4f4c-aa8f-8b5b01c52430"
 }
