@@ -1,7 +1,7 @@
 {
   "active": true,
   "activeVersion": {
-    "versionId": "fc29d7fb-2bee-40b1-89b7-63b1a487f323",
+    "versionId": "53852211-5bda-4cf1-b8c0-90967bc95cfe",
     "workflowId": "jskDSi3fMQH6wlc8",
     "nodes": [
       {
@@ -246,8 +246,8 @@
         "typeVersion": 1,
         "credentials": {
           "githubApi": {
-            "id": "1rXH94EAPbdj0luL",
-            "name": "n8n-john-helldiver"
+            "id": "YgIJxsAPd3YZPb7x",
+            "name": "n8n-tankbot"
           }
         }
       },
@@ -280,8 +280,8 @@
         "typeVersion": 1,
         "credentials": {
           "githubApi": {
-            "id": "1rXH94EAPbdj0luL",
-            "name": "n8n-john-helldiver"
+            "id": "YgIJxsAPd3YZPb7x",
+            "name": "n8n-tankbot"
           }
         }
       },
@@ -364,8 +364,8 @@
         "alwaysOutputData": true,
         "credentials": {
           "githubApi": {
-            "id": "1rXH94EAPbdj0luL",
-            "name": "n8n-john-helldiver"
+            "id": "YgIJxsAPd3YZPb7x",
+            "name": "n8n-tankbot"
           }
         },
         "continueOnFail": true
@@ -378,7 +378,7 @@
                 "id": "6cf546c5-5737-4dbd-851b-17d68e0a3780",
                 "name": "repo.owner",
                 "type": "string",
-                "value": "TankObliterator"
+                "value": "SEAF-MC"
               },
               {
                 "id": "452efa28-2dc6-4ea3-a7a2-c35d100d0382",
@@ -714,13 +714,13 @@
     },
     "nodeGroups": [],
     "authors": "Eon Hunt",
-    "name": "Version fc29d7fb",
+    "name": "Version 53852211",
     "description": "",
     "autosaved": true,
-    "createdAt": "2026-09-19T05:30:53.387Z",
-    "updatedAt": "2026-09-19T05:31:30.163Z"
+    "createdAt": "2026-10-16T05:17:33.907Z",
+    "updatedAt": "2026-10-16T05:17:37.307Z"
   },
-  "activeVersionId": "fc29d7fb-2bee-40b1-89b7-63b1a487f323",
+  "activeVersionId": "53852211-5bda-4cf1-b8c0-90967bc95cfe",
   "connections": {
     "n8n": {
       "main": [
@@ -1210,8 +1210,8 @@
       "typeVersion": 1,
       "credentials": {
         "githubApi": {
-          "id": "1rXH94EAPbdj0luL",
-          "name": "n8n-john-helldiver"
+          "id": "YgIJxsAPd3YZPb7x",
+          "name": "n8n-tankbot"
         }
       }
     },
@@ -1244,8 +1244,8 @@
       "typeVersion": 1,
       "credentials": {
         "githubApi": {
-          "id": "1rXH94EAPbdj0luL",
-          "name": "n8n-john-helldiver"
+          "id": "YgIJxsAPd3YZPb7x",
+          "name": "n8n-tankbot"
         }
       }
     },
@@ -1328,8 +1328,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "githubApi": {
-          "id": "1rXH94EAPbdj0luL",
-          "name": "n8n-john-helldiver"
+          "id": "YgIJxsAPd3YZPb7x",
+          "name": "n8n-tankbot"
         }
       },
       "continueOnFail": true
@@ -1342,7 +1342,7 @@
               "id": "6cf546c5-5737-4dbd-851b-17d68e0a3780",
               "name": "repo.owner",
               "type": "string",
-              "value": "TankObliterator"
+              "value": "SEAF-MC"
             },
             {
               "id": "452efa28-2dc6-4ea3-a7a2-c35d100d0382",
@@ -1464,6 +1464,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-09-19T05:30:53.383Z",
-  "versionId": "fc29d7fb-2bee-40b1-89b7-63b1a487f323"
+  "updatedAt": "2026-10-16T05:17:33.905Z",
+  "versionId": "53852211-5bda-4cf1-b8c0-90967bc95cfe"
 }
