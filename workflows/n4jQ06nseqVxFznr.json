@@ -1,0 +1,813 @@
+{
+  "active": true,
+  "activeVersion": {
+    "versionId": "e8643e71-2006-4c32-b480-71b6a3ec631b",
+    "workflowId": "n4jQ06nseqVxFznr",
+    "nodes": [
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "={{ $('/restart survival').item.json.guildId }}",
+            "mode": "id"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "={{ $('/restart survival').item.json.channelId }}",
+            "mode": "id"
+          },
+          "content": "=Survival is now back online!\n<@{{ $('/restart survival').item.json.userId }}>",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          1264,
+          320
+        ],
+        "id": "19df0693-17d9-479e-a346-25247ae2de21",
+        "name": "back up notify",
+        "webhookId": "8753e726-a2f9-4337-817a-565bfd4d4430",
+        "credentials": {
+          "discordBotApi": {
+            "id": "3SFVnF75zf8a4W5o",
+            "name": "John Helldiver"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "respond-to-interaction",
+          "content": "=<@{{ $('/restart survival').item.json.userId }}> Has initiated a `Survival` Reboot.\nThis should not take more than a minute.",
+          "replyPayloadMode": "raw-json",
+          "useInputInteractionData": false,
+          "interactionId": "={{ $('/restart survival').item.json.interactionId }}",
+          "interactionToken": "={{ $('/restart survival').item.json.interactionToken }}"
+        },
+        "type": "n8n-nodes-discord-bots.discordBot",
+        "typeVersion": 1,
+        "position": [
+          880,
+          -112
+        ],
+        "id": "a624a3ae-c2d8-450c-baca-a7c1d1800320",
+        "name": "update request",
+        "credentials": {
+          "discordBotApi": {
+            "id": "3SFVnF75zf8a4W5o",
+            "name": "John Helldiver"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "b459d9d4-8984-4fc7-b6da-89774e6b18e4",
+                "leftValue": "={{ $json.data.running }}",
+                "rightValue": false,
+                "operator": {
+                  "type": "boolean",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          688,
+          96
+        ],
+        "id": "296fa826-91d1-4fa8-a91d-6305e7fcd0f6",
+        "name": "Is stopped?"
+      },
+      {
+        "parameters": {
+          "amount": 1
+        },
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          576,
+          320
+        ],
+        "id": "0e6b3854-be91-4af3-88bb-9f2fdcbdc160",
+        "name": "1 sec delay",
+        "webhookId": "117668a0-d614-4a73-9862-76ef830c05a1"
+      },
+      {
+        "parameters": {
+          "amount": 3
+        },
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          960,
+          320
+        ],
+        "id": "ddc7b02d-85bf-412d-945e-ea26304bb140",
+        "name": "3 sec delay",
+        "webhookId": "78476bbd-216a-4021-ac60-13b9b8abafd2"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "b459d9d4-8984-4fc7-b6da-89774e6b18e4",
+                "leftValue": "={{ $json.data.running }}",
+                "rightValue": true,
+                "operator": {
+                  "type": "boolean",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          1056,
+          96
+        ],
+        "id": "0e92e43d-fe29-4c14-88ed-172358b4a87c",
+        "name": "Is running?"
+      },
+      {
+        "parameters": {
+          "url": "https://100.73.198.122:8443/api/v2/servers/4bc782bc-79cf-4eca-80cb-9af41384954d/stats",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBearerAuth",
+          "options": {
+            "allowUnauthorizedCerts": true
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          528,
+          96
+        ],
+        "id": "d5d57cc5-1c3d-4b02-b840-969f247e1196",
+        "name": "check status",
+        "credentials": {
+          "httpBearerAuth": {
+            "id": "k5Q9f9nQnIY53kOU",
+            "name": "Heavy Crafty API"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "url": "https://100.73.198.122:8443/api/v2/servers/4bc782bc-79cf-4eca-80cb-9af41384954d/stats",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBearerAuth",
+          "options": {
+            "allowUnauthorizedCerts": true
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          896,
+          96
+        ],
+        "id": "15cd054a-0b1e-4d22-93a8-1e176110fe2e",
+        "name": "check status1",
+        "credentials": {
+          "httpBearerAuth": {
+            "id": "k5Q9f9nQnIY53kOU",
+            "name": "Heavy Crafty API"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "inputSource": "passthrough"
+        },
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.2,
+        "position": [
+          512,
+          -112
+        ],
+        "id": "ad74deee-ed7a-4979-9644-0265bced1128",
+        "name": "/restart survival"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://100.73.198.122:8443/api/v2/servers/4bc782bc-79cf-4eca-80cb-9af41384954d/action/restart_server",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBearerAuth",
+          "options": {
+            "allowUnauthorizedCerts": true
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          688,
+          -112
+        ],
+        "id": "d643cf68-8b63-4d37-a98b-bf08ac8d98fd",
+        "name": "restart server",
+        "credentials": {
+          "httpBearerAuth": {
+            "id": "k5Q9f9nQnIY53kOU",
+            "name": "Heavy Crafty API"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "amount": 30
+        },
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          1248,
+          80
+        ],
+        "id": "a2e371df-5b4b-4288-ad89-e50c3543972a",
+        "name": "30 sec delay",
+        "webhookId": "9d5cc775-8d85-4591-b948-7926ae86fe2f"
+      }
+    ],
+    "connections": {
+      "back up notify": {
+        "main": [
+          []
+        ]
+      },
+      "update request": {
+        "main": [
+          [
+            {
+              "node": "check status",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Is stopped?": {
+        "main": [
+          [
+            {
+              "node": "check status1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "1 sec delay",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "1 sec delay": {
+        "main": [
+          [
+            {
+              "node": "check status",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "3 sec delay": {
+        "main": [
+          [
+            {
+              "node": "check status1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Is running?": {
+        "main": [
+          [
+            {
+              "node": "30 sec delay",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "3 sec delay",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "check status": {
+        "main": [
+          [
+            {
+              "node": "Is stopped?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "check status1": {
+        "main": [
+          [
+            {
+              "node": "Is running?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "/restart survival": {
+        "main": [
+          [
+            {
+              "node": "restart server",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "restart server": {
+        "main": [
+          [
+            {
+              "node": "update request",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "30 sec delay": {
+        "main": [
+          [
+            {
+              "node": "back up notify",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "nodeGroups": [],
+    "authors": "Eon Hunt",
+    "name": "Version e8643e71",
+    "description": "",
+    "autosaved": true,
+    "createdAt": "2026-10-12T22:59:55.355Z",
+    "updatedAt": "2026-10-12T22:59:58.426Z"
+  },
+  "activeVersionId": "e8643e71-2006-4c32-b480-71b6a3ec631b",
+  "connections": {
+    "back up notify": {
+      "main": [
+        []
+      ]
+    },
+    "update request": {
+      "main": [
+        [
+          {
+            "node": "check status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is stopped?": {
+      "main": [
+        [
+          {
+            "node": "check status1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "1 sec delay",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "1 sec delay": {
+      "main": [
+        [
+          {
+            "node": "check status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "3 sec delay": {
+      "main": [
+        [
+          {
+            "node": "check status1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is running?": {
+      "main": [
+        [
+          {
+            "node": "30 sec delay",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "3 sec delay",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "check status": {
+      "main": [
+        [
+          {
+            "node": "Is stopped?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "check status1": {
+      "main": [
+        [
+          {
+            "node": "Is running?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "/restart survival": {
+      "main": [
+        [
+          {
+            "node": "restart server",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "restart server": {
+      "main": [
+        [
+          {
+            "node": "update request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "30 sec delay": {
+      "main": [
+        [
+          {
+            "node": "back up notify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-10-12T22:26:50.241Z",
+  "id": "n4jQ06nseqVxFznr",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Cobblemon",
+  "nodeGroups": [],
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "={{ $('/restart survival').item.json.guildId }}",
+          "mode": "id"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "={{ $('/restart survival').item.json.channelId }}",
+          "mode": "id"
+        },
+        "content": "=Survival is now back online!\n<@{{ $('/restart survival').item.json.userId }}>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1264,
+        320
+      ],
+      "id": "19df0693-17d9-479e-a346-25247ae2de21",
+      "name": "back up notify",
+      "webhookId": "8753e726-a2f9-4337-817a-565bfd4d4430",
+      "credentials": {
+        "discordBotApi": {
+          "id": "3SFVnF75zf8a4W5o",
+          "name": "John Helldiver"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "respond-to-interaction",
+        "content": "=<@{{ $('/restart survival').item.json.userId }}> Has initiated a `Survival` Reboot.\nThis should not take more than a minute.",
+        "replyPayloadMode": "raw-json",
+        "useInputInteractionData": false,
+        "interactionId": "={{ $('/restart survival').item.json.interactionId }}",
+        "interactionToken": "={{ $('/restart survival').item.json.interactionToken }}"
+      },
+      "type": "n8n-nodes-discord-bots.discordBot",
+      "typeVersion": 1,
+      "position": [
+        880,
+        -112
+      ],
+      "id": "a624a3ae-c2d8-450c-baca-a7c1d1800320",
+      "name": "update request",
+      "credentials": {
+        "discordBotApi": {
+          "id": "3SFVnF75zf8a4W5o",
+          "name": "John Helldiver"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b459d9d4-8984-4fc7-b6da-89774e6b18e4",
+              "leftValue": "={{ $json.data.running }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        688,
+        96
+      ],
+      "id": "296fa826-91d1-4fa8-a91d-6305e7fcd0f6",
+      "name": "Is stopped?"
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        576,
+        320
+      ],
+      "id": "0e6b3854-be91-4af3-88bb-9f2fdcbdc160",
+      "name": "1 sec delay",
+      "webhookId": "117668a0-d614-4a73-9862-76ef830c05a1"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        960,
+        320
+      ],
+      "id": "ddc7b02d-85bf-412d-945e-ea26304bb140",
+      "name": "3 sec delay",
+      "webhookId": "78476bbd-216a-4021-ac60-13b9b8abafd2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b459d9d4-8984-4fc7-b6da-89774e6b18e4",
+              "leftValue": "={{ $json.data.running }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1056,
+        96
+      ],
+      "id": "0e92e43d-fe29-4c14-88ed-172358b4a87c",
+      "name": "Is running?"
+    },
+    {
+      "parameters": {
+        "url": "https://100.73.198.122:8443/api/v2/servers/4bc782bc-79cf-4eca-80cb-9af41384954d/stats",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        528,
+        96
+      ],
+      "id": "d5d57cc5-1c3d-4b02-b840-969f247e1196",
+      "name": "check status",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "k5Q9f9nQnIY53kOU",
+          "name": "Heavy Crafty API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://100.73.198.122:8443/api/v2/servers/4bc782bc-79cf-4eca-80cb-9af41384954d/stats",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        896,
+        96
+      ],
+      "id": "15cd054a-0b1e-4d22-93a8-1e176110fe2e",
+      "name": "check status1",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "k5Q9f9nQnIY53kOU",
+          "name": "Heavy Crafty API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        512,
+        -112
+      ],
+      "id": "ad74deee-ed7a-4979-9644-0265bced1128",
+      "name": "/restart survival"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://100.73.198.122:8443/api/v2/servers/4bc782bc-79cf-4eca-80cb-9af41384954d/action/restart_server",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        688,
+        -112
+      ],
+      "id": "d643cf68-8b63-4d37-a98b-bf08ac8d98fd",
+      "name": "restart server",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "k5Q9f9nQnIY53kOU",
+          "name": "Heavy Crafty API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1248,
+        80
+      ],
+      "id": "a2e371df-5b4b-4288-ad89-e50c3543972a",
+      "name": "30 sec delay",
+      "webhookId": "9d5cc775-8d85-4591-b948-7926ae86fe2f"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "timeSavedPerExecution": 1,
+    "timezone": "America/Denver",
+    "binaryMode": "separate"
+  },
+  "shared": [
+    {
+      "role": "workflow:owner",
+      "workflowId": "n4jQ06nseqVxFznr",
+      "projectId": "MgjxpSRAFCz8XSCR",
+      "createdAt": "2026-10-12T22:26:50.241Z",
+      "updatedAt": "2026-10-12T22:26:50.241Z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-10-12T22:59:55.353Z",
+  "versionId": "e8643e71-2006-4c32-b480-71b6a3ec631b"
+}
