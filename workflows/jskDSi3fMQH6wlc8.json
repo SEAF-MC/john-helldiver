@@ -1,7 +1,7 @@
 {
   "active": true,
   "activeVersion": {
-    "versionId": "53852211-5bda-4cf1-b8c0-90967bc95cfe",
+    "versionId": "7d478aa9-751c-4a65-b199-c8477e1bd7e3",
     "workflowId": "jskDSi3fMQH6wlc8",
     "nodes": [
       {
@@ -462,7 +462,7 @@
       },
       {
         "parameters": {
-          "jsCode": "const allowedWorkflowIds = [\n  \"9n0LAGVJ7wRuaygO\",\n  \"EktAZeDiCTO9iWFA\",\n  \"HGhoKWVALO8CN8uk\",\n  \"QkI-ai698wZcglpJSk-p_\",\n  \"bYVdpTmlwSyUpkeO\",\n  \"ecftsBjbWnRAh6P3\",\n  \"frqxFukTL7d1T1RJ\",\n  \"hy21lXPkdgAxjxH0\",\n  \"j9iRsQg7vkF9UL62\",\n  \"jktP3h8Rs0UvrRZi\",\n  \"jskDSi3fMQH6wlc8\",\n  \"qmi2562atiJCpECb\",\n  \"vE2nWMqdkibL3EZR\",\n  \"vHOx4WpVss6Mn7hm\"\n];\n\nreturn $input.all().filter(item => allowedWorkflowIds.includes(item.json.id));"
+          "jsCode": "const allowedWorkflowIds = [\n  \"EktAZeDiCTO9iWFA\",\n  \"HGhoKWVALO8CN8uk\",\n  \"QkI-ai698wZcglpJSk-p_\",\n  \"bYVdpTmlwSyUpkeO\",\n  \"ecftsBjbWnRAh6P3\",\n  \"frqxFukTL7d1T1RJ\",\n  \"hy21lXPkdgAxjxH0\",\n  \"j9iRsQg7vkF9UL62\",\n  \"jktP3h8Rs0UvrRZi\",\n  \"jskDSi3fMQH6wlc8\",\n  \"qmi2562atiJCpECb\",\n  \"n4jQ06nseqVxFznr\",\n  \"vE2nWMqdkibL3EZR\",\n  \"vHOx4WpVss6Mn7hm\"\n];\n\nreturn $input.all().filter(item => allowedWorkflowIds.includes(item.json.id));"
         },
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
@@ -714,13 +714,13 @@
     },
     "nodeGroups": [],
     "authors": "Eon Hunt",
-    "name": "Version 53852211",
+    "name": "Version 7d478aa9",
     "description": "",
     "autosaved": true,
-    "createdAt": "2026-10-16T05:17:33.907Z",
-    "updatedAt": "2026-10-16T05:17:37.307Z"
+    "createdAt": "2026-10-16T05:27:04.038Z",
+    "updatedAt": "2026-10-16T05:27:09.493Z"
   },
-  "activeVersionId": "53852211-5bda-4cf1-b8c0-90967bc95cfe",
+  "activeVersionId": "7d478aa9-751c-4a65-b199-c8477e1bd7e3",
   "connections": {
     "n8n": {
       "main": [
@@ -1426,7 +1426,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const allowedWorkflowIds = [\n  \"9n0LAGVJ7wRuaygO\",\n  \"EktAZeDiCTO9iWFA\",\n  \"HGhoKWVALO8CN8uk\",\n  \"QkI-ai698wZcglpJSk-p_\",\n  \"bYVdpTmlwSyUpkeO\",\n  \"ecftsBjbWnRAh6P3\",\n  \"frqxFukTL7d1T1RJ\",\n  \"hy21lXPkdgAxjxH0\",\n  \"j9iRsQg7vkF9UL62\",\n  \"jktP3h8Rs0UvrRZi\",\n  \"jskDSi3fMQH6wlc8\",\n  \"qmi2562atiJCpECb\",\n  \"vE2nWMqdkibL3EZR\",\n  \"vHOx4WpVss6Mn7hm\"\n];\n\nreturn $input.all().filter(item => allowedWorkflowIds.includes(item.json.id));"
+        "jsCode": "const allowedWorkflowIds = [\n  \"EktAZeDiCTO9iWFA\",\n  \"HGhoKWVALO8CN8uk\",\n  \"QkI-ai698wZcglpJSk-p_\",\n  \"bYVdpTmlwSyUpkeO\",\n  \"ecftsBjbWnRAh6P3\",\n  \"frqxFukTL7d1T1RJ\",\n  \"hy21lXPkdgAxjxH0\",\n  \"j9iRsQg7vkF9UL62\",\n  \"jktP3h8Rs0UvrRZi\",\n  \"jskDSi3fMQH6wlc8\",\n  \"qmi2562atiJCpECb\",\n  \"n4jQ06nseqVxFznr\",\n  \"vE2nWMqdkibL3EZR\",\n  \"vHOx4WpVss6Mn7hm\"\n];\n\nreturn $input.all().filter(item => allowedWorkflowIds.includes(item.json.id));"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -1464,6 +1464,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-10-16T05:17:33.905Z",
-  "versionId": "53852211-5bda-4cf1-b8c0-90967bc95cfe"
+  "updatedAt": "2026-10-16T05:27:04.036Z",
+  "versionId": "7d478aa9-751c-4a65-b199-c8477e1bd7e3"
 }
