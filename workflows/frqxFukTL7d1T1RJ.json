@@ -1,7 +1,7 @@
 {
   "active": true,
   "activeVersion": {
-    "versionId": "a0df8739-9dac-4f3b-8bb5-930c5a2bc3f9",
+    "versionId": "f796fd35-c646-4f80-9d8c-ce4227374da2",
     "workflowId": "frqxFukTL7d1T1RJ",
     "nodes": [
       {
@@ -156,7 +156,7 @@
       },
       {
         "parameters": {
-          "url": "https://192.168.1.2:8443/api/v2/servers/3eb412c4-ca83-4c9f-9975-437dde43d612/stats",
+          "url": "https://100.69.27.104:8443/api/v2/servers/0a95a70b-6c66-47f4-a7fb-e036892adec8/stats",
           "authentication": "genericCredentialType",
           "genericAuthType": "httpBearerAuth",
           "options": {
@@ -173,14 +173,14 @@
         "name": "check status",
         "credentials": {
           "httpBearerAuth": {
-            "id": "k5Q9f9nQnIY53kOU",
-            "name": "Crafty API"
+            "id": "fJcp6xsNcteR32g8",
+            "name": "Mega Crafty API"
           }
         }
       },
       {
         "parameters": {
-          "url": "https://192.168.1.2:8443/api/v2/servers/3eb412c4-ca83-4c9f-9975-437dde43d612/stats",
+          "url": "https://100.69.27.104:8443/api/v2/servers/0a95a70b-6c66-47f4-a7fb-e036892adec8/stats",
           "authentication": "genericCredentialType",
           "genericAuthType": "httpBearerAuth",
           "options": {
@@ -197,8 +197,8 @@
         "name": "check status1",
         "credentials": {
           "httpBearerAuth": {
-            "id": "k5Q9f9nQnIY53kOU",
-            "name": "Crafty API"
+            "id": "fJcp6xsNcteR32g8",
+            "name": "Mega Crafty API"
           }
         }
       },
@@ -218,7 +218,7 @@
       {
         "parameters": {
           "method": "POST",
-          "url": "https://192.168.1.2:8443/api/v2/servers/3eb412c4-ca83-4c9f-9975-437dde43d612/action/restart_server",
+          "url": "https://100.69.27.104:8443/api/v2/servers/0a95a70b-6c66-47f4-a7fb-e036892adec8/action/restart_server",
           "authentication": "genericCredentialType",
           "genericAuthType": "httpBearerAuth",
           "options": {
@@ -235,14 +235,14 @@
         "name": "restart server",
         "credentials": {
           "httpBearerAuth": {
-            "id": "k5Q9f9nQnIY53kOU",
-            "name": "Crafty API"
+            "id": "fJcp6xsNcteR32g8",
+            "name": "Mega Crafty API"
           }
         }
       },
       {
         "parameters": {
-          "amount": 30
+          "amount": 20
         },
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
@@ -388,13 +388,13 @@
     },
     "nodeGroups": [],
     "authors": "Eon Hunt",
-    "name": "Version a0df8739",
+    "name": "Version f796fd35",
     "description": "",
     "autosaved": true,
-    "createdAt": "2026-06-22T15:10:37.649Z",
-    "updatedAt": "2026-06-22T15:10:39.530Z"
+    "createdAt": "2026-10-12T22:34:19.222Z",
+    "updatedAt": "2026-10-12T22:34:21.952Z"
   },
-  "activeVersionId": "a0df8739-9dac-4f3b-8bb5-930c5a2bc3f9",
+  "activeVersionId": "f796fd35-c646-4f80-9d8c-ce4227374da2",
   "connections": {
     "back up notify": {
       "main": [
@@ -687,7 +687,7 @@
     },
     {
       "parameters": {
-        "url": "https://192.168.1.2:8443/api/v2/servers/3eb412c4-ca83-4c9f-9975-437dde43d612/stats",
+        "url": "https://100.69.27.104:8443/api/v2/servers/0a95a70b-6c66-47f4-a7fb-e036892adec8/stats",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpBearerAuth",
         "options": {
@@ -704,14 +704,14 @@
       "name": "check status",
       "credentials": {
         "httpBearerAuth": {
-          "id": "k5Q9f9nQnIY53kOU",
-          "name": "Crafty API"
+          "id": "fJcp6xsNcteR32g8",
+          "name": "Mega Crafty API"
         }
       }
     },
     {
       "parameters": {
-        "url": "https://192.168.1.2:8443/api/v2/servers/3eb412c4-ca83-4c9f-9975-437dde43d612/stats",
+        "url": "https://100.69.27.104:8443/api/v2/servers/0a95a70b-6c66-47f4-a7fb-e036892adec8/stats",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpBearerAuth",
         "options": {
@@ -728,8 +728,8 @@
       "name": "check status1",
       "credentials": {
         "httpBearerAuth": {
-          "id": "k5Q9f9nQnIY53kOU",
-          "name": "Crafty API"
+          "id": "fJcp6xsNcteR32g8",
+          "name": "Mega Crafty API"
         }
       }
     },
@@ -749,7 +749,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://192.168.1.2:8443/api/v2/servers/3eb412c4-ca83-4c9f-9975-437dde43d612/action/restart_server",
+        "url": "https://100.69.27.104:8443/api/v2/servers/0a95a70b-6c66-47f4-a7fb-e036892adec8/action/restart_server",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpBearerAuth",
         "options": {
@@ -766,14 +766,14 @@
       "name": "restart server",
       "credentials": {
         "httpBearerAuth": {
-          "id": "k5Q9f9nQnIY53kOU",
-          "name": "Crafty API"
+          "id": "fJcp6xsNcteR32g8",
+          "name": "Mega Crafty API"
         }
       }
     },
     {
       "parameters": {
-        "amount": 30
+        "amount": 20
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
@@ -808,6 +808,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-06-22T15:10:37.646Z",
-  "versionId": "a0df8739-9dac-4f3b-8bb5-930c5a2bc3f9"
+  "updatedAt": "2026-10-12T22:34:19.220Z",
+  "versionId": "f796fd35-c646-4f80-9d8c-ce4227374da2"
 }
