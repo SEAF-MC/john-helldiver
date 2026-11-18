@@ -1,7 +1,7 @@
 {
   "active": true,
   "activeVersion": {
-    "versionId": "06eeeb06-505c-4549-a117-d1a7a600e729",
+    "versionId": "2238ca8a-0b4b-46d9-a113-a40716e18a60",
     "workflowId": "hy21lXPkdgAxjxH0",
     "nodes": [
       {
@@ -90,7 +90,7 @@
       {
         "parameters": {
           "method": "POST",
-          "url": "https://192.168.1.5:8443/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/action/update_executable",
+          "url": "https://192.168.1.5:8448/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/action/update_executable",
           "authentication": "genericCredentialType",
           "genericAuthType": "httpBearerAuth",
           "options": {
@@ -115,7 +115,7 @@
       {
         "parameters": {
           "method": "POST",
-          "url": "https://192.168.1.5:8443/api/v2/servers/8e071ed1-9df3-4af9-8b95-06ba6bfbbe0f/action/update_executable",
+          "url": "https://192.168.1.5:8448/api/v2/servers/8e071ed1-9df3-4af9-8b95-06ba6bfbbe0f/action/update_executable",
           "authentication": "genericCredentialType",
           "genericAuthType": "httpBearerAuth",
           "options": {
@@ -125,7 +125,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          880,
+          864,
           -112
         ],
         "id": "5d91d983-fac5-455e-a50b-bcc590c2cbba",
@@ -139,7 +139,7 @@
       },
       {
         "parameters": {
-          "url": "https://192.168.1.5:8443/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/stats",
+          "url": "https://192.168.1.5:8448/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/stats",
           "authentication": "genericCredentialType",
           "genericAuthType": "httpBearerAuth",
           "options": {
@@ -196,7 +196,7 @@
       },
       {
         "parameters": {
-          "url": "https://192.168.1.5:8443/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/stats",
+          "url": "https://192.168.1.5:8448/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/stats",
           "authentication": "genericCredentialType",
           "genericAuthType": "httpBearerAuth",
           "options": {
@@ -424,13 +424,13 @@
     },
     "nodeGroups": [],
     "authors": "Tank Obliterator",
-    "name": "Version 06eeeb06",
+    "name": "Version 2238ca8a",
     "description": "",
-    "autosaved": false,
-    "createdAt": "2026-10-29T17:49:52.212Z",
-    "updatedAt": "2026-10-29T17:49:54.825Z"
+    "autosaved": true,
+    "createdAt": "2026-11-18T03:47:06.023Z",
+    "updatedAt": "2026-11-18T03:47:08.211Z"
   },
-  "activeVersionId": "06eeeb06-505c-4549-a117-d1a7a600e729",
+  "activeVersionId": "2238ca8a-0b4b-46d9-a113-a40716e18a60",
   "connections": {
     "3 sec delay": {
       "main": [
@@ -668,7 +668,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://192.168.1.5:8443/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/action/update_executable",
+        "url": "https://192.168.1.5:8448/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/action/update_executable",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpBearerAuth",
         "options": {
@@ -693,7 +693,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://192.168.1.5:8443/api/v2/servers/8e071ed1-9df3-4af9-8b95-06ba6bfbbe0f/action/update_executable",
+        "url": "https://192.168.1.5:8448/api/v2/servers/8e071ed1-9df3-4af9-8b95-06ba6bfbbe0f/action/update_executable",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpBearerAuth",
         "options": {
@@ -703,7 +703,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        880,
+        864,
         -112
       ],
       "id": "5d91d983-fac5-455e-a50b-bcc590c2cbba",
@@ -717,7 +717,7 @@
     },
     {
       "parameters": {
-        "url": "https://192.168.1.5:8443/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/stats",
+        "url": "https://192.168.1.5:8448/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/stats",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpBearerAuth",
         "options": {
@@ -774,7 +774,7 @@
     },
     {
       "parameters": {
-        "url": "https://192.168.1.5:8443/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/stats",
+        "url": "https://192.168.1.5:8448/api/v2/servers/1eebe5f5-254d-4086-94b2-7b996bf35a5c/stats",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpBearerAuth",
         "options": {
@@ -880,6 +880,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-10-29T17:49:52.211Z",
-  "versionId": "06eeeb06-505c-4549-a117-d1a7a600e729"
+  "updatedAt": "2026-11-18T03:47:06.021Z",
+  "versionId": "2238ca8a-0b4b-46d9-a113-a40716e18a60"
 }
